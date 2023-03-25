@@ -44,8 +44,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2023-03-22T21:33:50Z</dcterms:created>
   <dc:creator>Elvis</dc:creator>
   <cp:lastModifiedBy>Elvis</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2023-03-25T22:32:02Z</dcterms:modified>
-  <cp:revision>1.208</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2023-03-25T22:44:21Z</dcterms:modified>
+  <cp:revision>1.212</cp:revision>
   <cp:version>R2023a</cp:version>
 </cp:coreProperties>
 
@@ -115,7 +115,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.208&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.212&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="ShowPortDataTypes">on</P>
@@ -2067,7 +2067,7 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.xml
   <P Name="IsExportFunctionModel">0</P>
   <P Name="SimulinkSubDomainType">Simulink</P>
   <P Name="NumParameterArguments">0</P>
-  <P Name="NumExternalFileReferences">79</P>
+  <P Name="NumExternalFileReferences">75</P>
   <ExternalFileReference>
     <P Name="Reference">DSPBABase/Control</P>
     <P Name="Path">$bdroot/Control</P>
@@ -2344,12 +2344,6 @@ Stair</P>
   </ExternalFileReference>
   <ExternalFileReference>
     <P Name="Reference">DSPBAPrim/And</P>
-    <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/And2</P>
-    <P Name="SID">288</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAPrim/And</P>
     <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/And3</P>
     <P Name="SID">218</P>
     <P Name="Type">LIBRARY_BLOCK</P>
@@ -2373,12 +2367,6 @@ Stair</P>
     <P Name="Type">LIBRARY_BLOCK</P>
   </ExternalFileReference>
   <ExternalFileReference>
-    <P Name="Reference">DSPBAPrim/CmpEQ</P>
-    <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/CmpEQ1</P>
-    <P Name="SID">286</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
     <P Name="Reference">DSPBAPrim/Const</P>
     <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/Const</P>
     <P Name="SID">85</P>
@@ -2388,12 +2376,6 @@ Stair</P>
     <P Name="Reference">DSPBAPrim/Const</P>
     <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/Const1</P>
     <P Name="SID">251</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAPrim/Const</P>
-    <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/Const2</P>
-    <P Name="SID">287</P>
     <P Name="Type">LIBRARY_BLOCK</P>
   </ExternalFileReference>
   <ExternalFileReference>
@@ -2538,12 +2520,6 @@ Stair</P>
     <P Name="Reference">DSPBAControl/latch_0L</P>
     <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/latch_0L1</P>
     <P Name="SID">205</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAControl/latch_0L</P>
-    <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/latch_0L2</P>
-    <P Name="SID">285</P>
     <P Name="Type">LIBRARY_BLOCK</P>
   </ExternalFileReference>
   <P Name="OrderedModelArguments">1</P>
@@ -2732,7 +2708,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
     ],
     &quot;startingCursor&quot; : 0,
     &quot;times&quot; : [
-      1.35
+      32.1
     ]
   },
   &quot;global&quot; : {
@@ -2928,14 +2904,6 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
           &quot;radix&quot; : &quot;hexadecimal&quot;,
           &quot;signalId&quot; : &quot;bc1dbf17-0318-4935-b337-54c332bda573&quot;,
           &quot;type&quot; : &quot;wave&quot;
-        },
-        {
-          &quot;signalId&quot; : &quot;faeeee6c-55bc-4ed6-92b0-889c942c4b2d&quot;,
-          &quot;type&quot; : &quot;wave&quot;
-        },
-        {
-          &quot;signalId&quot; : &quot;1606788e-d490-46e4-ab36-6ae380caf656&quot;,
-          &quot;type&quot; : &quot;wave&quot;
         }
       ],
       &quot;yOffset&quot; : 0
@@ -2960,7 +2928,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
     ]
   }
 }</P>
-  <P Name="LogicAnalyzerSignalOrdering">5473d37d-8530-4278-95ea-3acbbfdecd7e,c1ac9a97-2062-4ef6-8da9-76a757037e7e,c7c16b2b-55b8-43e1-8e20-72783d8fd708,033c7d1a-9a21-4dc3-ba30-6601181f7f38,0d6deedd-cf88-4cb3-9a29-538547838243,3f14e498-b8d3-42c2-8915-908c2cb213db,14dd9b40-0d18-49af-b727-f6fc82be638e,faeeee6c-55bc-4ed6-92b0-889c942c4b2d,4ae08102-cfbd-4efb-8032-646bc64db7dc,fea659c5-99f7-4a4e-90c6-8b8fafde8800,744edf7c-c0d8-4ec0-b96e-4ec47c1c6e8c,6a5f467c-97c7-431b-9c63-7a1a81701edd,48af2f3a-dae3-4eb0-875a-f8c248c6822a,1606788e-d490-46e4-ab36-6ae380caf656,06830340-4098-42e6-b1b7-12cf935083a8,c9b831c4-e0fc-4b34-83df-5c6c2c66277d,7dfb95f8-e4f1-417b-81c7-6dd3e09e2fa9,29ea31c8-c0be-470f-b314-784315a13b5e,c4af1a81-c957-42d6-9002-324b093c8ce1,484a6d8e-1984-446a-902b-1122b50312f0,fb6d9584-5d21-4550-898f-09b4334e1f1f,6ff50e54-68f8-4eb0-9f15-35ea71f67f1f,c0375b10-6843-4991-8962-7663b8690118,10c7b7e1-f5f6-49c1-acb2-54d9182ef131,584f2541-9473-46ea-9bf1-742ae04dce4b,17cef83c-c689-4f8a-be2e-08dde0a315dd,d54c7a16-f83f-4490-9781-184e181d97d4,98d5bfa1-3d70-4d40-96d5-6acad7ac75ec,515cd659-1ad5-451b-b94b-44340a8fa4fc,151655d9-7e58-45bd-9612-964645143a6f,c4f01dd8-604e-4d4e-8a53-834c4531d795,8f1e9701-50a7-4fc8-b632-010e2efb9725,934b790a-080e-447a-8ccd-19d69d0bb816,fe4131f5-8054-4670-9fe6-821dbdf13716,9af3a5f0-9008-40b6-8124-bfefc8b1002b,ad83527d-0054-49bd-9aba-2f9d05bacdb6,b8cf74ed-69bc-40ed-be89-268e8c8c3b79,2e5b773e-dca6-4eb5-aebc-77a06d10b6ad,316df6d7-6be3-47a6-b2da-f6de8f34eb05,bc1dbf17-0318-4935-b337-54c332bda573,56e2866e-80aa-4749-83ed-ba21bffd059d,d404c536-82ae-4755-b3cb-f26c776f2aa5,4019397d-8bb3-4744-9e7a-347ee0f35743,6631c6d3-3980-43aa-9fca-f39700e50466</P>
+  <P Name="LogicAnalyzerSignalOrdering">5473d37d-8530-4278-95ea-3acbbfdecd7e,c1ac9a97-2062-4ef6-8da9-76a757037e7e,c7c16b2b-55b8-43e1-8e20-72783d8fd708,033c7d1a-9a21-4dc3-ba30-6601181f7f38,0d6deedd-cf88-4cb3-9a29-538547838243,3f14e498-b8d3-42c2-8915-908c2cb213db,14dd9b40-0d18-49af-b727-f6fc82be638e,4ae08102-cfbd-4efb-8032-646bc64db7dc,fea659c5-99f7-4a4e-90c6-8b8fafde8800,744edf7c-c0d8-4ec0-b96e-4ec47c1c6e8c,6a5f467c-97c7-431b-9c63-7a1a81701edd,48af2f3a-dae3-4eb0-875a-f8c248c6822a,06830340-4098-42e6-b1b7-12cf935083a8,c9b831c4-e0fc-4b34-83df-5c6c2c66277d,7dfb95f8-e4f1-417b-81c7-6dd3e09e2fa9,29ea31c8-c0be-470f-b314-784315a13b5e,c4af1a81-c957-42d6-9002-324b093c8ce1,484a6d8e-1984-446a-902b-1122b50312f0,fb6d9584-5d21-4550-898f-09b4334e1f1f,6ff50e54-68f8-4eb0-9f15-35ea71f67f1f,c0375b10-6843-4991-8962-7663b8690118,10c7b7e1-f5f6-49c1-acb2-54d9182ef131,584f2541-9473-46ea-9bf1-742ae04dce4b,17cef83c-c689-4f8a-be2e-08dde0a315dd,d54c7a16-f83f-4490-9781-184e181d97d4,98d5bfa1-3d70-4d40-96d5-6acad7ac75ec,515cd659-1ad5-451b-b94b-44340a8fa4fc,151655d9-7e58-45bd-9612-964645143a6f,c4f01dd8-604e-4d4e-8a53-834c4531d795,8f1e9701-50a7-4fc8-b632-010e2efb9725,934b790a-080e-447a-8ccd-19d69d0bb816,fe4131f5-8054-4670-9fe6-821dbdf13716,9af3a5f0-9008-40b6-8124-bfefc8b1002b,ad83527d-0054-49bd-9aba-2f9d05bacdb6,b8cf74ed-69bc-40ed-be89-268e8c8c3b79,2e5b773e-dca6-4eb5-aebc-77a06d10b6ad,316df6d7-6be3-47a6-b2da-f6de8f34eb05,bc1dbf17-0318-4935-b337-54c332bda573,56e2866e-80aa-4749-83ed-ba21bffd059d,d404c536-82ae-4755-b3cb-f26c776f2aa5,4019397d-8bb3-4744-9e7a-347ee0f35743,6631c6d3-3980-43aa-9fca-f39700e50466</P>
 </LogicAnalyzerPlugin>
 
 __MWOPC_PART_BEGIN__ /simulink/ScheduleCore.xml
@@ -4603,35 +4571,6 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
       </Port>
     </PortProperties>
   </Block>
-  <Block BlockType="Reference" Name="And2" SID="288">
-    <PortCounts in="2" out="1"/>
-    <P Name="Position">[1175, -178, 1225, -127]</P>
-    <P Name="ZOrder">5297</P>
-    <P Name="LibraryVersion">1.492</P>
-    <P Name="SourceBlock">DSPBAPrim/And</P>
-    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
-    <InstanceData>
-      <P Name="MultithreadedSim">auto</P>
-      <P Name="primtype">and</P>
-      <P Name="nInputs">2</P>
-      <P Name="nOutputs">1</P>
-      <P Name="omode">Inherit via internal rule</P>
-      <P Name="otype">sfix(16)</P>
-      <P Name="scale">2^-15</P>
-      <P Name="rndmethod">Unbiased</P>
-      <P Name="factor">1</P>
-      <P Name="satmethod">Symmetric</P>
-      <P Name="shift_vec">[0 1 2 -1]</P>
-      <P Name="value">0</P>
-      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; &apos; &apos;; ]</P>
-      <P Name="outPortNames">[&apos; &apos;]</P>
-      <P Name="dspbaimage">dspba_prim.svg</P>
-      <P Name="text">fprintf(&apos;&amp;&apos;);</P>
-      <P Name="style">Optimised</P>
-      <P Name="visibilities">8+2</P>
-      <P Name="version">20211007</P>
-    </InstanceData>
-  </Block>
   <Block BlockType="Reference" Name="And3" SID="218">
     <PortCounts in="2" out="1"/>
     <P Name="Position">[1175, -98, 1225, -47]</P>
@@ -4772,6 +4711,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <PortCounts in="2" out="1"/>
     <P Name="Position">[320, 683, 370, 732]</P>
     <P Name="ZOrder">5295</P>
+    <P Name="Commented">on</P>
     <P Name="LibraryVersion">1.492</P>
     <P Name="SourceBlock">DSPBAPrim/CmpEQ</P>
     <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
@@ -4864,6 +4804,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <PortCounts out="1"/>
     <P Name="Position">[95, 702, 265, 738]</P>
     <P Name="ZOrder">5296</P>
+    <P Name="Commented">on</P>
     <P Name="LibraryVersion">1.492</P>
     <P Name="SourceBlock">DSPBAPrim/Const</P>
     <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
@@ -5148,7 +5089,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
   </Block>
   <Block BlockType="Reference" Name="Or" SID="37">
     <PortCounts in="2" out="1"/>
-    <P Name="Position">[1415, 88, 1465, 137]</P>
+    <P Name="Position">[710, 88, 760, 137]</P>
     <P Name="ZOrder">5198</P>
     <P Name="LibraryVersion">1.492</P>
     <P Name="SourceBlock">DSPBAPrim/Or</P>
@@ -5386,22 +5327,6 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
       </Port>
     </PortProperties>
   </Block>
-  <Block BlockType="Reference" Name="latch_0L2" SID="285">
-    <PortCounts in="2" out="1"/>
-    <P Name="Position">[1540, -51, 1600, 11]</P>
-    <P Name="ZOrder">5294</P>
-    <P Name="LibraryVersion">1.54</P>
-    <P Name="SourceBlock">DSPBAControl/latch_0L</P>
-    <P Name="SourceType"/>
-    <InstanceData>
-      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
-      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
-      <P Name="RTWMemSecDataConstants">Inherit from model</P>
-      <P Name="RTWMemSecDataInternal">Inherit from model</P>
-      <P Name="RTWMemSecDataParameters">Inherit from model</P>
-      <P Name="ContentPreviewEnabled">on</P>
-    </InstanceData>
-  </Block>
   <Block BlockType="Outport" Name="qv" SID="63">
     <P Name="Position">[1855, 108, 1885, 122]</P>
     <P Name="ZOrder">5217</P>
@@ -5433,18 +5358,46 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <P Name="FontWeight">normal</P>
     <P Name="FontAngle">normal</P>
     <P Name="ZOrder">29</P>
-    <P Name="Labels">[1, 1]</P>
     <P Name="Src">34#out:1</P>
-    <P Name="Points">[389, 0; 0, 115]</P>
-    <P Name="Dst">234#in:1</P>
+    <P Name="Points">[79, 0]</P>
+    <Branch>
+      <P Name="ZOrder">499</P>
+      <P Name="Points">[0, 110; -287, 0; 0, 70]</P>
+      <P Name="Dst">89#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">498</P>
+      <P Name="Labels">[1, 1]</P>
+      <P Name="Points">[310, 0]</P>
+      <Branch>
+        <P Name="ZOrder">512</P>
+        <P Name="Labels">[2, 0]</P>
+        <P Name="Points">[538, 0; 0, 100]</P>
+        <P Name="Dst">32#in:1</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">511</P>
+        <P Name="Points">[0, 115]</P>
+        <P Name="Dst">234#in:1</P>
+      </Branch>
+    </Branch>
   </Line>
   <Line>
     <P Name="Name">valid_dly1</P>
     <P Name="ZOrder">24</P>
     <P Name="Labels">[0, 0]</P>
     <P Name="Src">33#out:1</P>
-    <P Name="Points">[35, 0; 0, 55]</P>
-    <P Name="Dst">34#in:1</P>
+    <P Name="Points">[35, 0]</P>
+    <Branch>
+      <P Name="ZOrder">509</P>
+      <P Name="Points">[0, -45]</P>
+      <P Name="Dst">37#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">508</P>
+      <P Name="Points">[0, 55]</P>
+      <P Name="Dst">34#in:1</P>
+    </Branch>
   </Line>
   <Line>
     <P Name="Name">valid_muxed</P>
@@ -5460,16 +5413,8 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <P Name="Points">[90, 0]</P>
     <Branch>
       <P Name="ZOrder">304</P>
-      <P Name="Points">[0, -255; 1105, 0]</P>
-      <Branch>
-        <P Name="ZOrder">427</P>
-        <P Name="Points">[0, -55]</P>
-        <P Name="Dst">288#in:2</P>
-      </Branch>
-      <Branch>
-        <P Name="ZOrder">426</P>
-        <P Name="Dst">218#in:1</P>
-      </Branch>
+      <P Name="Points">[0, -255]</P>
+      <P Name="Dst">218#in:1</P>
     </Branch>
     <Branch>
       <P Name="ZOrder">196</P>
@@ -5490,22 +5435,22 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
       <P Name="Points">[188, 0]</P>
       <Branch>
         <P Name="ZOrder">367</P>
-        <P Name="Labels">[4, 0]</P>
-        <P Name="Points">[0, -58; 316, 0; 0, 58]</P>
-        <P Name="Dst">236#in:1</P>
+        <P Name="Points">[0, -70; 339, 0]</P>
+        <Branch>
+          <P Name="ZOrder">503</P>
+          <P Name="Dst">37#in:1</P>
+        </Branch>
+        <Branch>
+          <P Name="ZOrder">502</P>
+          <P Name="Labels">[2, 0]</P>
+          <P Name="Points">[0, 70]</P>
+          <P Name="Dst">236#in:1</P>
+        </Branch>
       </Branch>
       <Branch>
         <P Name="ZOrder">368</P>
         <P Name="Points">[0, 80]</P>
-        <Branch>
-          <P Name="ZOrder">292</P>
-          <P Name="Points">[0, 170]</P>
-          <P Name="Dst">89#in:1</P>
-        </Branch>
-        <Branch>
-          <P Name="ZOrder">291</P>
-          <P Name="Dst">35#in:1</P>
-        </Branch>
+        <P Name="Dst">35#in:1</P>
       </Branch>
       <Branch>
         <P Name="ZOrder">30</P>
@@ -5582,9 +5527,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <P Name="Dst">143#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">417</P>
-    <P Name="Src">285#out:1</P>
-    <P Name="Points">[53, 0; 0, 265]</P>
+    <P Name="ZOrder">510</P>
+    <P Name="Src">156#out:1</P>
+    <P Name="Points">[118, 0; 0, 250]</P>
     <P Name="Dst">59#in:2</P>
   </Line>
   <Line>
@@ -5660,42 +5605,15 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <P Name="ZOrder">386</P>
     <P Name="Labels">[0, 0]</P>
     <P Name="Src">238#out:1</P>
-    <P Name="Points">[54, 0]</P>
-    <Branch>
-      <P Name="ZOrder">400</P>
-      <P Name="Points">[99, 0]</P>
-      <Branch>
-        <P Name="ZOrder">394</P>
-        <P Name="Points">[0, -60]</P>
-        <P Name="Dst">37#in:2</P>
-      </Branch>
-      <Branch>
-        <P Name="ZOrder">393</P>
-        <P Name="Points">[0, 155]</P>
-        <P Name="Dst">32#in:1</P>
-      </Branch>
-    </Branch>
-    <Branch>
-      <P Name="ZOrder">399</P>
-      <P Name="Points">[0, 298; -373, 0; 0, -48]</P>
-      <P Name="Dst">234#in:3</P>
-    </Branch>
+    <P Name="Points">[54, 0; 0, 298; -373, 0; 0, -48]</P>
+    <P Name="Dst">234#in:3</P>
   </Line>
   <Line>
     <P Name="Name">valid_masked</P>
     <P Name="ZOrder">387</P>
     <P Name="Labels">[0, 0]</P>
     <P Name="Src">236#out:1</P>
-    <P Name="Points">[18, 0]</P>
-    <Branch>
-      <P Name="ZOrder">389</P>
-      <P Name="Dst">238#in:1</P>
-    </Branch>
-    <Branch>
-      <P Name="ZOrder">388</P>
-      <P Name="Points">[0, -85]</P>
-      <P Name="Dst">37#in:1</P>
-    </Branch>
+    <P Name="Dst">238#in:1</P>
   </Line>
   <Line>
     <P Name="ZOrder">391</P>
@@ -5730,26 +5648,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_60.xml
     <P Name="Dst">87#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">418</P>
-    <P Name="Src">156#out:1</P>
-    <P Name="Dst">285#in:2</P>
-  </Line>
-  <Line>
     <P Name="ZOrder">424</P>
     <P Name="Src">287#out:1</P>
     <P Name="Dst">286#in:2</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">428</P>
-    <P Name="Src">286#out:1</P>
-    <P Name="Points">[761, 0; 0, -875]</P>
-    <P Name="Dst">288#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">429</P>
-    <P Name="Src">288#out:1</P>
-    <P Name="Points">[281, 0; 0, 115]</P>
-    <P Name="Dst">285#in:1</P>
   </Line>
   <Line>
     <P Name="ZOrder">436</P>
@@ -5774,13 +5675,6 @@ valid &amp;&amp; cnt == 0</P>
     <P Name="Position">[915, 491, 1029, 506]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="ZOrder">-3</P>
-  </Annotation>
-  <Annotation SID="204">
-    <P Name="Name">Mask valid until the delay line (FIFO) has
-propagated.</P>
-    <P Name="Position">[935, 99, 1117, 127]</P>
-    <P Name="InternalMargins">[0, 0, 0, 0]</P>
-    <P Name="ZOrder">-1</P>
   </Annotation>
   <Annotation SID="36">
     <P Name="Name">optional, but makes the system more
@@ -7374,8 +7268,8 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="LoadSaveID" Class="char">60</P>
           <P Name="Extents" Class="double">[3706.0, 1731.0]</P>
           <P Name="ZoomFactor" Class="double">0.9701570680628272</P>
-          <P Name="Offset" Class="double">[-407.13893095978273, -237.65516678043329]</P>
-          <P Name="SceneRectInView" Class="double">[-407.13893095978273, -237.65516678043329, 2546.666666666667, 1189.498111171074]</P>
+          <P Name="Offset" Class="double">[-487.08091075616363, -156.79621168488333]</P>
+          <P Name="SceneRectInView" Class="double">[-487.08091075616363, -156.79621168488333, 2546.666666666667, 1189.498111171074]</P>
         </Object>
         <Object ObjectID="6">
           <P Name="IsActive" Class="logical">0</P>
