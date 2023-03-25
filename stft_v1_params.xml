@@ -31,7 +31,7 @@
 		<param name="errorOnGPIOMismatch" value="false" />
 		<param name="floatMismatchTolerance" value="0.0" />
 		<param name="floatMismatchZeroTolerance" value="0.0" />
-		<param name="generateHardware" value="false" />
+		<param name="generateHardware" value="true" />
 		<param name="generateSingleConduitInterface" value="false" />
 		<param name="hardwareDescriptionLanguage" value="SystemVerilog" />
 		<param name="hardwareDestinationDirectory" value="./rtl" />
