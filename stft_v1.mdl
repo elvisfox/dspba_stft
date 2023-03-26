@@ -44,8 +44,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2023-03-22T21:33:50Z</dcterms:created>
   <dc:creator>Elvis</dc:creator>
   <cp:lastModifiedBy>Elvis</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2023-03-26T17:18:57Z</dcterms:modified>
-  <cp:revision>1.247</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2023-03-26T17:30:37Z</dcterms:modified>
+  <cp:revision>1.248</cp:revision>
   <cp:version>R2023a</cp:version>
 </cp:coreProperties>
 
@@ -116,7 +116,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.247&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.248&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="ShowPortDataTypes">on</P>
@@ -2898,7 +2898,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
     }
   ],
   &quot;timeAxis&quot; : {
-    &quot;pixelsPerSecond&quot; : 0.64892578125
+    &quot;pixelsPerSecond&quot; : 1.64501953125
   },
   &quot;trigger&quot; : {
     &quot;enabled&quot; : false,

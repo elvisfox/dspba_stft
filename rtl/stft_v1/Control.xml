@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/intelFPGA/22.1std/quartus/dspba/Blocksets/BaseBlocks/modelip.xsl"?>
+<MODEL>
+<NAME>stft_v1/Control</NAME>
+<BUILD_YEAR>2022</BUILD_YEAR>
+<DOCPATH>file:///C:/intelFPGA/22.1std/quartus/dspba/Docs/Help/</DOCPATH>
+<DESCRIPTION>
+This help page relates to the specific instance 'Control' of the CONTROL block
+</DESCRIPTION>
+<HELP>file:///C:/intelFPGA/22.1std/quartus/dspba/Docs/Help/CONTROL_help.html</HELP>
+<BLOCKTYPE>CONTROL</BLOCKTYPE>
+<RESOURCES>
+<FUNIT>
+ <FUNAME>stft_v1/my_system</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>0</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>stft_v1/my_system/Demux & Normalize</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>1194</LUT4>
+ <MULT>6</MULT>
+ <BITS>2376</BITS>
+ <BLOCKS>2</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>stft_v1/my_system/Downscale 1</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>245</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>stft_v1/my_system/Downscale 2</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>257</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>stft_v1/my_system/FFT</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>4630</LUT4>
+ <MULT>48</MULT>
+ <BITS>9564</BITS>
+ <BLOCKS>10</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>stft_v1/my_system/IFFT</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>5032</LUT4>
+ <MULT>48</MULT>
+ <BITS>13440</BITS>
+ <BLOCKS>11</BLOCKS>
+</FUNIT>
+<FUNIT>
+ <FUNAME>stft_v1/my_system/Mux & Windowing</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>329</LUT4>
+ <MULT>2</MULT>
+ <BITS>2112</BITS>
+ <BLOCKS>2</BLOCKS>
+</FUNIT>
+</RESOURCES>
+</MODEL>

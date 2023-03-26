@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<island simulinkPath='stft_v1/my_system/FFT' topLevelEntity='stft_v1_my_system_FFT'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_v_tpl' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_in_1_v_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelIn_cunroll_x.stm' highLevelName='v' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_c_tpl' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_in_2_c_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelIn_cunroll_x.stm' highLevelName='c' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_real_d_tpl' clock='clk' reset='areset' width='18' dir='in' role='data' qsys_role='data_in_3_real_d_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelIn_cunroll_x.stm' highLevelName='d' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_3_imag_d_tpl' clock='clk' reset='areset' width='18' dir='in' role='data' qsys_role='data_in_3_imag_d_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelIn_cunroll_x.stm' highLevelName='d' highLevelIndex='3' vector='0' complex='1'/>
+    <port name='out_1_qv_tpl' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_out_1_qv_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelOut1_cunroll_x.stm' highLevelName='qv' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_qc_tpl' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_out_2_qc_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelOut1_cunroll_x.stm' highLevelName='qc' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_real_q_tpl' clock='clk' reset='areset' width='26' dir='out' role='data' qsys_role='data_out_3_real_q_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelOut1_cunroll_x.stm' highLevelName='q' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_3_imag_q_tpl' clock='clk' reset='areset' width='26' dir='out' role='data' qsys_role='data_out_3_imag_q_tpl' stm='stft_v1/stft_v1_my_system_FFT_ChannelOut1_cunroll_x.stm' highLevelName='q' highLevelIndex='3' vector='0' complex='1'/>
+    <file path='eda/sim_lib/altera_mf.v' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf_ver'/>
+</island>

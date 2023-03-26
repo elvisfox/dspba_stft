@@ -1,0 +1,11 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'stft_v1_my_system'
+
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/stft_v1/stft_v1_my_system_safe_path_ver.sv
+set_global_assignment -name VHDL_FILE ../rtl/stft_v1/stft_v1_my_system_safe_path.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/stft_v1/stft_v1_my_system.sv
+set_global_assignment -name QIP_FILE ../rtl/stft_v1/stft_v1_my_system_Demux_Normalize.qip
+set_global_assignment -name QIP_FILE ../rtl/stft_v1/stft_v1_my_system_Downscale_1.qip
+set_global_assignment -name QIP_FILE ../rtl/stft_v1/stft_v1_my_system_Downscale_2.qip
+set_global_assignment -name QIP_FILE ../rtl/stft_v1/stft_v1_my_system_FFT.qip
+set_global_assignment -name QIP_FILE ../rtl/stft_v1/stft_v1_my_system_IFFT.qip
+set_global_assignment -name QIP_FILE ../rtl/stft_v1/stft_v1_my_system_Mux_Windowing.qip

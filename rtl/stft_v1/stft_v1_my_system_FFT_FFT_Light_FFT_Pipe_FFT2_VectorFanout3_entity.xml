@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='stft_v1_my_system_FFT_FFT_Light_FFT_Pipe_FFT2_VectorFanout3' floating-point-script-prefix='stft_v1_my_system_FFT_FFT_Light_FFT_Pipe_FFT2_VectorFanout3_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>

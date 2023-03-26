@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<island simulinkPath='stft_v1/my_system' topLevelEntity='stft_v1_my_system'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='v_s' clock='clk' reset='areset' width='1' dir='in' role='valid' qsys_role='valid_v_s' stm='stft_v1/stft_v1_my_system_Mux_Windowing_ChannelIn_cunroll_x.stm' highLevelName='v' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='c_s' clock='clk' reset='areset' width='8' dir='in' role='channel' qsys_role='channel_c_s' stm='stft_v1/stft_v1_my_system_Mux_Windowing_ChannelIn_cunroll_x.stm' highLevelName='c' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='d0_im' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_d0_im' stm='stft_v1/stft_v1_my_system_Mux_Windowing_ChannelIn_cunroll_x.stm' highLevelName='d0' highLevelIndex='3' vector='0' complex='1'/>
+    <port name='d0_re' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_d0_re' stm='stft_v1/stft_v1_my_system_Mux_Windowing_ChannelIn_cunroll_x.stm' highLevelName='d0' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='qv_s' clock='clk' reset='areset' width='1' dir='out' role='valid' qsys_role='valid_qv_s' stm='stft_v1/stft_v1_my_system_Demux_Normalize_ChannelOut_cunroll_x.stm' highLevelName='qv' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='qc_s' clock='clk' reset='areset' width='8' dir='out' role='channel' qsys_role='channel_qc_s' stm='stft_v1/stft_v1_my_system_Demux_Normalize_ChannelOut_cunroll_x.stm' highLevelName='qc' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='q0_im' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_q0_im' stm='stft_v1/stft_v1_my_system_Demux_Normalize_ChannelOut_cunroll_x.stm' highLevelName='q0' highLevelIndex='3' vector='0' complex='1'/>
+    <port name='q0_re' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_q0_re' stm='stft_v1/stft_v1_my_system_Demux_Normalize_ChannelOut_cunroll_x.stm' highLevelName='q0' highLevelIndex='3' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_mf.v' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf_ver'/>
+    <file path='stft_v1/stft_v1_my_system_safe_path_msim_ver.sv' base='rtl' type='vhdl' usage='simOnly'/>
+    <file path='stft_v1/stft_v1_my_system_safe_path_ver.sv' base='rtl' type='vhdl' usage='synthOnly'/>
+    <file path='stft_v1/stft_v1_my_system_safe_path_msim.vhd' base='rtl' type='vhdl' usage='simOnly'/>
+    <file path='stft_v1/stft_v1_my_system_safe_path.vhd' base='rtl' type='vhdl' usage='synthOnly'/>
+    <file path='stft_v1/stft_v1_my_system.sv' base='rtl' type='vhdl' usage='all'/>
+    <file path='backend/Libraries/sv/base/dspba_library_ver.sv' base='dspba' type='vhdl' usage='all'/>
+    <file path='stft_v1/stft_v1_my_system_Demux_Normalize.sv' base='rtl' type='vhdl' usage='all'/>
+    <file path='stft_v1/stft_v1_my_system_Downscale_1.sv' base='rtl' type='vhdl' usage='all'/>
+    <file path='stft_v1/stft_v1_my_system_Downscale_2.sv' base='rtl' type='vhdl' usage='all'/>
+    <file path='stft_v1/stft_v1_my_system_FFT.sv' base='rtl' type='vhdl' usage='all'/>
+    <file path='stft_v1/stft_v1_my_system_IFFT.sv' base='rtl' type='vhdl' usage='all'/>
+    <file path='stft_v1/stft_v1_my_system_Mux_Windowing.sv' base='rtl' type='vhdl' usage='all'/>
+
+</island>

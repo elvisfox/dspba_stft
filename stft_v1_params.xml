@@ -3,10 +3,10 @@
 	<design>
 		<device id="dspba">
 			<param name="deviceMember" value="" />
-			<param name="family" value="Arria 10" />
+			<param name="family" value="Cyclone 10 LP" />
 			<param name="max10NoMemInit" value="false" />
 			<param name="part" value="AUTO" />
-			<param name="speedGrade" value="1" />
+			<param name="speedGrade" value="7" />
 		</device>
 		<avalonmmslave id="dspba">
 			<param name="addressWidth" value="10" />
