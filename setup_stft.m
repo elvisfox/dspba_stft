@@ -2,11 +2,11 @@
 my_system.Nfft_log2 = 7;
 
 %% FFT shift right
-my_system.fft_sr_bits = fix(my_system.Nfft_log2 / 2);
-my_system.ifft_sr_bits = my_system.Nfft_log2 - my_system.fft_sr_bits;
+% my_system.fft_sr_bits = fix(my_system.Nfft_log2 / 2);
+% my_system.ifft_sr_bits = my_system.Nfft_log2 - my_system.fft_sr_bits;
 
 %% FFT Types
-my_system.ifft_bit_inc = my_system.Nfft_log2 - my_system.fft_sr_bits;
+my_system.ifft_bit_inc = fix(sqrt(my_system.Nfft_log2) + 1);
 my_system.fft_input_type = fixdt(1,18,17);
 my_system.fft_twiddle_type = fixdt(1,20,19);
 my_system.fft_type_spec = dspba.fft.full_wordgrowth(true,false,my_system.Nfft_log2,my_system.fft_input_type,my_system.fft_twiddle_type);
