@@ -44,8 +44,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2023-03-22T21:33:50Z</dcterms:created>
   <dc:creator>Elvis</dc:creator>
   <cp:lastModifiedBy>Elvis</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2023-03-26T13:21:29Z</dcterms:modified>
-  <cp:revision>1.227</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2023-03-26T14:42:56Z</dcterms:modified>
+  <cp:revision>1.236</cp:revision>
   <cp:version>R2023a</cp:version>
 </cp:coreProperties>
 
@@ -116,7 +116,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.227&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:1.236&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="ShowPortDataTypes">on</P>
@@ -557,7 +557,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
           </MATStruct>
           <MATStruct>
             <Field Name="UUID" Class="char">c4af1a81-c957-42d6-9002-324b093c8ce1</Field>
-            <Field Name="BlockPath_" Class="char">my_system/Complex to Real-Imag</Field>
+            <Field Name="BlockPath_" Class="char">my_system/Discard Imag &amp; Downscale/Complex to Real-Imag</Field>
             <Field Name="SID_" Class="char">161</Field>
             <Field Name="SubPath_" Class="char"/>
             <Field Name="OutputPortIndex_" Class="double">1.0</Field>
@@ -597,7 +597,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
           </MATStruct>
           <MATStruct>
             <Field Name="UUID" Class="char">d404c536-82ae-4755-b3cb-f26c776f2aa5</Field>
-            <Field Name="BlockPath_" Class="char">my_system/Complex to Real-Imag</Field>
+            <Field Name="BlockPath_" Class="char">my_system/Discard Imag &amp; Downscale/Complex to Real-Imag</Field>
             <Field Name="SID_" Class="char">161</Field>
             <Field Name="SubPath_" Class="char"/>
             <Field Name="OutputPortIndex_" Class="double">2.0</Field>
@@ -1775,21 +1775,6 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.xml
     <P Name="Decimation">2</P>
   </TestPointedSignal>
   <TestPointedSignal>
-    <P Name="SignalName">data_ifft_real</P>
-    <P Name="FullBlockPath">$bdroot/my_system/Complex to Real-Imag</P>
-    <P Name="LogSignal">1</P>
-    <P Name="MaxPoints">5000</P>
-    <P Name="Decimation">2</P>
-  </TestPointedSignal>
-  <TestPointedSignal>
-    <P Name="SignalName">data_ifft_imag</P>
-    <P Name="FullBlockPath">$bdroot/my_system/Complex to Real-Imag</P>
-    <P Name="PortIndex">2</P>
-    <P Name="LogSignal">1</P>
-    <P Name="MaxPoints">5000</P>
-    <P Name="Decimation">2</P>
-  </TestPointedSignal>
-  <TestPointedSignal>
     <P Name="SignalName">fft_out_valid</P>
     <P Name="FullBlockPath">$bdroot/my_system/FFT</P>
     <P Name="LogSignal">1</P>
@@ -1828,7 +1813,7 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.xml
     <P Name="Decimation">2</P>
   </TestPointedSignal>
   <TestPointedSignal>
-    <P Name="SignalName">data_ifft_real</P>
+    <P Name="SignalName">ifft_out_data</P>
     <P Name="FullBlockPath">$bdroot/my_system/IFFT</P>
     <P Name="PortIndex">3</P>
     <P Name="LogSignal">1</P>
@@ -1960,6 +1945,21 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.xml
     <P Name="Decimation">2</P>
   </TestPointedSignal>
   <TestPointedSignal>
+    <P Name="SignalName">data_ifft_real</P>
+    <P Name="FullBlockPath">$bdroot/my_system/Discard Imag &amp; Downscale/Complex to Real-Imag</P>
+    <P Name="LogSignal">1</P>
+    <P Name="MaxPoints">5000</P>
+    <P Name="Decimation">2</P>
+  </TestPointedSignal>
+  <TestPointedSignal>
+    <P Name="SignalName">data_ifft_imag</P>
+    <P Name="FullBlockPath">$bdroot/my_system/Discard Imag &amp; Downscale/Complex to Real-Imag</P>
+    <P Name="PortIndex">2</P>
+    <P Name="LogSignal">1</P>
+    <P Name="MaxPoints">5000</P>
+    <P Name="Decimation">2</P>
+  </TestPointedSignal>
+  <TestPointedSignal>
     <P Name="SignalName">data_windowed</P>
     <P Name="FullBlockPath">$bdroot/my_system/Mux &amp; Windowing/Convert</P>
     <P Name="LogSignal">1</P>
@@ -2041,7 +2041,7 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.xml
   <P Name="IsExportFunctionModel">0</P>
   <P Name="SimulinkSubDomainType">Simulink</P>
   <P Name="NumParameterArguments">0</P>
-  <P Name="NumExternalFileReferences">73</P>
+  <P Name="NumExternalFileReferences">79</P>
   <ExternalFileReference>
     <P Name="Reference">simulink/Sources/Chirp Signal</P>
     <P Name="Path">$bdroot/Chirp Signal</P>
@@ -2068,24 +2068,6 @@ Sequence
 Stair</P>
     <P Name="Path">$bdroot/Repeating Sequence Stair1</P>
     <P Name="SID">152</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAVectorUtil/Complex to Real-Imag</P>
-    <P Name="Path">$bdroot/my_system/Complex to Real-Imag</P>
-    <P Name="SID">161</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAPrim/Convert</P>
-    <P Name="Path">$bdroot/my_system/Convert</P>
-    <P Name="SID">307</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAPrim/Convert</P>
-    <P Name="Path">$bdroot/my_system/Convert1</P>
-    <P Name="SID">316</P>
     <P Name="Type">LIBRARY_BLOCK</P>
   </ExternalFileReference>
   <ExternalFileReference>
@@ -2311,6 +2293,66 @@ Stair</P>
     <P Name="Type">LIBRARY_BLOCK</P>
   </ExternalFileReference>
   <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/ChannelIn</P>
+    <P Name="Path">$bdroot/my_system/Discard Imag &amp; Downscale/ChannelIn1</P>
+    <P Name="SID">344</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/ChannelOut</P>
+    <P Name="Path">$bdroot/my_system/Discard Imag &amp; Downscale/ChannelOut1</P>
+    <P Name="SID">345</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAVectorUtil/Complex to Real-Imag</P>
+    <P Name="Path">$bdroot/my_system/Discard Imag &amp; Downscale/Complex to Real-Imag</P>
+    <P Name="SID">161</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/Convert</P>
+    <P Name="Path">$bdroot/my_system/Discard Imag &amp; Downscale/Convert</P>
+    <P Name="SID">307</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/SynthesisInfo</P>
+    <P Name="Path">$bdroot/my_system/Discard Imag &amp; Downscale/SynthesisInfo</P>
+    <P Name="SID">361</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/ChannelIn</P>
+    <P Name="Path">$bdroot/my_system/Downscale/ChannelIn</P>
+    <P Name="SID">342</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/ChannelOut</P>
+    <P Name="Path">$bdroot/my_system/Downscale/ChannelOut</P>
+    <P Name="SID">343</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/Convert</P>
+    <P Name="Path">$bdroot/my_system/Downscale/Convert1</P>
+    <P Name="SID">316</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/ReinterpretCast</P>
+    <P Name="Path">$bdroot/my_system/Downscale/ReinterpretCast</P>
+    <P Name="SID">317</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
+    <P Name="Reference">DSPBAPrim/SynthesisInfo</P>
+    <P Name="Path">$bdroot/my_system/Downscale/SynthesisInfo</P>
+    <P Name="SID">360</P>
+    <P Name="Type">LIBRARY_BLOCK</P>
+  </ExternalFileReference>
+  <ExternalFileReference>
     <P Name="Reference">DspbAdvFftLibrary/Common/FFT</P>
     <P Name="Path">$bdroot/my_system/FFT</P>
     <P Name="SID">18</P>
@@ -2476,12 +2518,6 @@ Stair</P>
     <P Name="Reference">DSPBAControl/latch_0L</P>
     <P Name="Path">$bdroot/my_system/Mux &amp; Windowing/latch_0L1</P>
     <P Name="SID">205</P>
-    <P Name="Type">LIBRARY_BLOCK</P>
-  </ExternalFileReference>
-  <ExternalFileReference>
-    <P Name="Reference">DSPBAPrim/ReinterpretCast</P>
-    <P Name="Path">$bdroot/my_system/ReinterpretCast</P>
-    <P Name="SID">317</P>
     <P Name="Type">LIBRARY_BLOCK</P>
   </ExternalFileReference>
   <P Name="OrderedModelArguments">1</P>
@@ -2670,7 +2706,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
     ],
     &quot;startingCursor&quot; : 0,
     &quot;times&quot; : [
-      68.7
+      552.4
     ]
   },
   &quot;global&quot; : {
@@ -2678,7 +2714,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
   &quot;panels&quot; : [
     {
       &quot;height&quot; : 100,
-      &quot;startingTrace&quot; : 30,
+      &quot;startingTrace&quot; : 23,
       &quot;traces&quot; : [
         {
           &quot;signalId&quot; : &quot;6ff50e54-68f8-4eb0-9f15-35ea71f67f1f&quot;,
@@ -2857,14 +2893,14 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/LogicAnalyzerPlugin.xml
           &quot;type&quot; : &quot;wave&quot;
         },
         {
-          &quot;format&quot; : &quot;digital&quot;,
+          &quot;format&quot; : &quot;analog&quot;,
           &quot;height&quot; : 100,
           &quot;radix&quot; : &quot;hexadecimal&quot;,
           &quot;signalId&quot; : &quot;bc1dbf17-0318-4935-b337-54c332bda573&quot;,
           &quot;type&quot; : &quot;wave&quot;
         }
       ],
-      &quot;yOffset&quot; : 68
+      &quot;yOffset&quot; : 3
     }
   ],
   &quot;timeAxis&quot; : {
@@ -2992,6 +3028,8 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleEditor.xml
 __MWOPC_PART_BEGIN__ /simulink/systems/_rels/system_2.xml.rels
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="system_346" Target="system_346.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
+  <Relationship Id="system_353" Target="system_353.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
   <Relationship Id="system_60" Target="system_60.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
   <Relationship Id="system_98" Target="system_98.xml" Type="http://schemas.mathworks.com/simulink/2010/relationships/system"/>
 </Relationships>
@@ -3018,9 +3056,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
   <P Name="Location">[-1, -7, 2560, 1393]</P>
-  <P Name="ZoomFactor">125</P>
+  <P Name="Open">on</P>
   <Block BlockType="Inport" Name="v" SID="20">
-    <P Name="Position">[-490, 388, -460, 402]</P>
+    <P Name="Position">[-510, 388, -480, 402]</P>
     <P Name="ZOrder">37</P>
     <PortProperties>
       <Port Type="out" Index="1">
@@ -3029,7 +3067,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
     </PortProperties>
   </Block>
   <Block BlockType="Inport" Name="c" SID="150">
-    <P Name="Position">[-490, 433, -460, 447]</P>
+    <P Name="Position">[-510, 433, -480, 447]</P>
     <P Name="ZOrder">5219</P>
     <P Name="Port">2</P>
     <PortProperties>
@@ -3039,7 +3077,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
     </PortProperties>
   </Block>
   <Block BlockType="Inport" Name="d0" SID="21">
-    <P Name="Position">[-490, 478, -460, 492]</P>
+    <P Name="Position">[-510, 478, -480, 492]</P>
     <P Name="ZOrder">38</P>
     <P Name="Port">3</P>
     <PortProperties>
@@ -3048,94 +3086,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
       </Port>
     </PortProperties>
   </Block>
-  <Block BlockType="Reference" Name="Complex to Real-Imag" SID="161">
-    <PortCounts in="1" out="2"/>
-    <P Name="Position">[570, 455, 665, 515]</P>
-    <P Name="ZOrder">5242</P>
-    <P Name="LibraryVersion">1.43</P>
-    <P Name="SourceBlock">DSPBAVectorUtil/Complex to Real-Imag</P>
-    <P Name="SourceType">DSP Builder Advanced Blockset Complex to Real-Imag</P>
-    <InstanceData>
-      <P Name="MultithreadedSim">auto</P>
-    </InstanceData>
-    <PortProperties>
-      <Port Type="out" Index="1">
-        <P Name="Name">data_ifft_real</P>
-        <P Name="DataLogging">on</P>
-      </Port>
-      <Port Type="out" Index="2">
-        <P Name="Name">data_ifft_imag</P>
-        <P Name="DataLogging">on</P>
-      </Port>
-    </PortProperties>
-  </Block>
-  <Block BlockType="Reference" Name="Convert" SID="307">
-    <PortCounts in="1" out="1"/>
-    <P Name="Position">[775, 473, 850, 497]</P>
-    <P Name="ZOrder">5240</P>
-    <P Name="LibraryVersion">1.492</P>
-    <P Name="SourceBlock">DSPBAPrim/Convert</P>
-    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
-    <InstanceData>
-      <P Name="MultithreadedSim">auto</P>
-      <P Name="primtype">convert</P>
-      <P Name="nInputs">1</P>
-      <P Name="nOutputs">1</P>
-      <P Name="omode">Specify via dialog</P>
-      <P Name="otype">fixdt(1,18,17)</P>
-      <P Name="scale">2^-17</P>
-      <P Name="rndmethod">Biased</P>
-      <P Name="factor">1</P>
-      <P Name="satmethod">Asymmetric</P>
-      <P Name="shift_vec">[0 1 2 -1]</P>
-      <P Name="value">round([0:255]/17)</P>
-      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
-      <P Name="outPortNames">[&apos; &apos;; &apos;c&apos;]</P>
-      <P Name="dspbaimage">dspba_prim_wide.svg</P>
-      <P Name="text">fprintf(&apos;convert&apos;);</P>
-      <P Name="style">Optimised</P>
-      <P Name="visibilities">8+64+256+2^17</P>
-      <P Name="clipdetect">off</P>
-      <P Name="floatPrecision">float32_m23</P>
-      <P Name="advOptions">[]</P>
-      <P Name="version">20211007</P>
-    </InstanceData>
-  </Block>
-  <Block BlockType="Reference" Name="Convert1" SID="316">
-    <PortCounts in="1" out="1"/>
-    <P Name="Position">[195, 473, 270, 497]</P>
-    <P Name="ZOrder">5247</P>
-    <P Name="LibraryVersion">1.492</P>
-    <P Name="SourceBlock">DSPBAPrim/Convert</P>
-    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
-    <InstanceData>
-      <P Name="MultithreadedSim">auto</P>
-      <P Name="primtype">convert</P>
-      <P Name="nInputs">1</P>
-      <P Name="nOutputs">1</P>
-      <P Name="omode">Specify via dialog</P>
-      <P Name="otype">my_system.ifft_input_type</P>
-      <P Name="scale">2^-(17+my_system.ifft_bit_inc)</P>
-      <P Name="rndmethod">Biased</P>
-      <P Name="factor">1</P>
-      <P Name="satmethod">Asymmetric</P>
-      <P Name="shift_vec">[0 1 2 -1]</P>
-      <P Name="value">round([0:255]/17)</P>
-      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
-      <P Name="outPortNames">[&apos; &apos;; &apos;c&apos;]</P>
-      <P Name="dspbaimage">dspba_prim_wide.svg</P>
-      <P Name="text">fprintf(&apos;convert&apos;);</P>
-      <P Name="style">Optimised</P>
-      <P Name="visibilities">8+64+256+2^17</P>
-      <P Name="clipdetect">off</P>
-      <P Name="floatPrecision">float32_m23</P>
-      <P Name="advOptions">[]</P>
-      <P Name="version">20211007</P>
-    </InstanceData>
-  </Block>
   <Block BlockType="SubSystem" Name="Demux &amp; Normalize" SID="98">
     <PortCounts in="3" out="3"/>
-    <P Name="Position">[940, 370, 1030, 510]</P>
+    <P Name="Position">[740, 370, 830, 510]</P>
     <P Name="ZOrder">5218</P>
     <P Name="ContentPreviewEnabled">on</P>
     <System Ref="system_98"/>
@@ -3184,9 +3137,23 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
       <P Name="max10nomeminit">off</P>
     </InstanceData>
   </Block>
+  <Block BlockType="SubSystem" Name="Discard Imag &amp; Downscale" SID="353">
+    <PortCounts in="3" out="3"/>
+    <P Name="Position">[555, 373, 610, 507]</P>
+    <P Name="ZOrder">5258</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_353"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Downscale" SID="346">
+    <PortCounts in="3" out="3"/>
+    <P Name="Position">[80, 373, 130, 507]</P>
+    <P Name="ZOrder">5257</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_346"/>
+  </Block>
   <Block BlockType="Reference" Name="FFT" SID="18">
     <PortCounts in="3" out="3"/>
-    <P Name="Position">[-145, 373, -35, 507]</P>
+    <P Name="Position">[-190, 373, -80, 507]</P>
     <P Name="ZOrder">35</P>
     <P Name="BackgroundColor">lightBlue</P>
     <P Name="LibraryVersion">1.1726</P>
@@ -3229,7 +3196,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
   </Block>
   <Block BlockType="Reference" Name="IFFT" SID="92">
     <PortCounts in="3" out="3"/>
-    <P Name="Position">[365, 373, 475, 507]</P>
+    <P Name="Position">[275, 373, 385, 507]</P>
     <P Name="ZOrder">5216</P>
     <P Name="BackgroundColor">lightBlue</P>
     <P Name="LibraryVersion">1.1726</P>
@@ -3265,14 +3232,14 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
         <P Name="DataLogging">on</P>
       </Port>
       <Port Type="out" Index="3">
-        <P Name="Name">data_ifft_real</P>
+        <P Name="Name">ifft_out_data</P>
         <P Name="DataLogging">on</P>
       </Port>
     </PortProperties>
   </Block>
   <Block BlockType="SubSystem" Name="Mux &amp; Windowing" SID="60">
     <PortCounts in="3" out="3"/>
-    <P Name="Position">[-370, 369, -275, 511]</P>
+    <P Name="Position">[-415, 369, -320, 511]</P>
     <P Name="ZOrder">5215</P>
     <P Name="ContentPreviewEnabled">on</P>
     <PortProperties>
@@ -3288,73 +3255,20 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
     </PortProperties>
     <System Ref="system_60"/>
   </Block>
-  <Block BlockType="Reference" Name="ReinterpretCast" SID="317">
-    <PortCounts in="1" out="1"/>
-    <P Name="Position">[50, 461, 125, 509]</P>
-    <P Name="ZOrder">5248</P>
-    <P Name="LibraryVersion">1.492</P>
-    <P Name="SourceBlock">DSPBAPrim/ReinterpretCast</P>
-    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
-    <InstanceData>
-      <P Name="MultithreadedSim">auto</P>
-      <P Name="primtype">reinterpret</P>
-      <P Name="nInputs">1</P>
-      <P Name="nOutputs">1</P>
-      <P Name="omode">Specify via dialog</P>
-      <P Name="otype">fixdt(1,18+my_system.Nfft_log2+1,17+my_system.Nfft_log2)</P>
-      <P Name="scale">2^-(17+my_system.Nfft_log2)</P>
-      <P Name="rndmethod">Unbiased</P>
-      <P Name="factor">1</P>
-      <P Name="satmethod">Symmetric</P>
-      <P Name="shift_vec">[0 1 2 -1]</P>
-      <P Name="value">0</P>
-      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
-      <P Name="outPortNames">[&apos; &apos;]</P>
-      <P Name="dspbaimage">dspba_prim.svg</P>
-      <P Name="text">fprintf(&apos;Reinterp\nCast&apos;, value);</P>
-      <P Name="style">Optimised</P>
-      <P Name="visibilities">8</P>
-      <P Name="floatPrecision">float32_m23</P>
-      <P Name="version">20211007</P>
-    </InstanceData>
-  </Block>
-  <Block BlockType="Terminator" Name="Terminator" SID="162">
-    <P Name="Position">[710, 490, 730, 510]</P>
-    <P Name="ZOrder">5243</P>
-    <P Name="Commented">on</P>
-  </Block>
   <Block BlockType="Outport" Name="qv" SID="56">
-    <P Name="Position">[1100, 388, 1130, 402]</P>
+    <P Name="Position">[910, 388, 940, 402]</P>
     <P Name="ZOrder">5211</P>
   </Block>
   <Block BlockType="Outport" Name="qc" SID="151">
-    <P Name="Position">[1100, 433, 1130, 447]</P>
+    <P Name="Position">[910, 433, 940, 447]</P>
     <P Name="ZOrder">5220</P>
     <P Name="Port">2</P>
   </Block>
   <Block BlockType="Outport" Name="q0" SID="58">
-    <P Name="Position">[1100, 478, 1130, 492]</P>
+    <P Name="Position">[910, 478, 940, 492]</P>
     <P Name="ZOrder">5213</P>
     <P Name="Port">3</P>
   </Block>
-  <Line>
-    <P Name="Name">ifft_out_channel</P>
-    <P Name="ZOrder">115</P>
-    <P Name="Labels">[1, 1]</P>
-    <P Name="Src">92#out:2</P>
-    <P Name="Points">[460, 0]</P>
-    <P Name="Dst">98#in:2</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">114</P>
-    <P Name="Src">98#out:3</P>
-    <P Name="Dst">58#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">100</P>
-    <P Name="Src">21#out:1</P>
-    <P Name="Dst">60#in:3</P>
-  </Line>
   <Line>
     <P Name="Name">fft_in_valid</P>
     <P Name="ZOrder">85</P>
@@ -3377,100 +3291,123 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
     <P Name="Dst">18#in:3</P>
   </Line>
   <Line>
-    <P Name="ZOrder">101</P>
-    <P Name="Src">20#out:1</P>
-    <P Name="Dst">60#in:1</P>
-  </Line>
-  <Line>
-    <P Name="Name">fft_out_valid</P>
-    <P Name="ZOrder">110</P>
-    <P Name="Labels">[1, 1]</P>
-    <P Name="Src">18#out:1</P>
-    <P Name="Dst">92#in:1</P>
-  </Line>
-  <Line>
-    <P Name="Name">fft_out_channel</P>
-    <P Name="ZOrder">111</P>
-    <P Name="Labels">[1, 1]</P>
-    <P Name="Src">18#out:2</P>
-    <P Name="Dst">92#in:2</P>
-  </Line>
-  <Line>
-    <P Name="Name">fft_out_data</P>
-    <P Name="ZOrder">137</P>
-    <P Name="Labels">[0, 0]</P>
-    <P Name="Src">18#out:3</P>
-    <P Name="Dst">317#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">119</P>
-    <P Name="Src">98#out:1</P>
-    <P Name="Dst">56#in:1</P>
-  </Line>
-  <Line>
-    <P Name="Name">ifft_out_valid</P>
-    <P Name="ZOrder">125</P>
-    <P Name="Labels">[1, 1]</P>
-    <P Name="Src">92#out:1</P>
-    <P Name="Points">[460, 0]</P>
-    <P Name="Dst">98#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">132</P>
+    <P Name="ZOrder">185</P>
     <P Name="Src">150#out:1</P>
     <P Name="Dst">60#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">133</P>
+    <P Name="ZOrder">187</P>
+    <P Name="Src">20#out:1</P>
+    <P Name="Dst">60#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">186</P>
+    <P Name="Src">21#out:1</P>
+    <P Name="Dst">60#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">190</P>
+    <P Name="Src">98#out:1</P>
+    <P Name="Dst">56#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">189</P>
     <P Name="Src">98#out:2</P>
     <P Name="Dst">151#in:1</P>
   </Line>
   <Line>
-    <P Name="ZOrder">143</P>
-    <P Name="Src">307#out:1</P>
-    <P Name="Dst">98#in:3</P>
+    <P Name="ZOrder">188</P>
+    <P Name="Src">98#out:3</P>
+    <P Name="Dst">58#in:1</P>
   </Line>
   <Line>
-    <P Name="Name">data_ifft_imag</P>
-    <P Name="ZOrder">147</P>
+    <P Name="Name">fft_out_valid</P>
+    <P Name="ZOrder">217</P>
     <P Name="Labels">[0, 1]</P>
-    <P Name="Src">161#out:2</P>
-    <P Name="Dst">162#in:1</P>
+    <P Name="Src">18#out:1</P>
+    <P Name="Dst">346#in:1</P>
   </Line>
   <Line>
-    <P Name="Name">data_ifft_real</P>
-    <P Name="ZOrder">162</P>
+    <P Name="Name">fft_out_channel</P>
+    <P Name="ZOrder">218</P>
     <P Name="Labels">[0, 1]</P>
-    <P Name="Src">92#out:3</P>
-    <P Name="Dst">161#in:1</P>
+    <P Name="Src">18#out:2</P>
+    <P Name="Dst">346#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">159</P>
-    <P Name="Src">316#out:1</P>
+    <P Name="Name">fft_out_data</P>
+    <P Name="ZOrder">219</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">18#out:3</P>
+    <P Name="Dst">346#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">220</P>
+    <P Name="Src">346#out:1</P>
+    <P Name="Dst">92#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">221</P>
+    <P Name="Src">346#out:2</P>
+    <P Name="Dst">92#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">222</P>
+    <P Name="Src">346#out:3</P>
     <P Name="Dst">92#in:3</P>
   </Line>
   <Line>
-    <P Name="ZOrder">161</P>
-    <P Name="Src">317#out:1</P>
-    <P Name="Dst">316#in:1</P>
+    <P Name="Name">ifft_out_valid</P>
+    <P Name="ZOrder">223</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">92#out:1</P>
+    <P Name="Dst">353#in:1</P>
   </Line>
   <Line>
-    <P Name="Name">data_ifft_real</P>
-    <P Name="ZOrder">168</P>
-    <P Name="Labels">[1, 0]</P>
-    <P Name="Src">161#out:1</P>
-    <P Name="Points">[50, 0; 0, 15]</P>
-    <P Name="Dst">307#in:1</P>
+    <P Name="Name">ifft_out_channel</P>
+    <P Name="ZOrder">224</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">92#out:2</P>
+    <P Name="Dst">353#in:2</P>
   </Line>
-  <Annotation SID="318">
-    <P Name="Name">1/Nfft</P>
-    <P Name="Position">[75, 522, 100, 537]</P>
+  <Line>
+    <P Name="Name">ifft_out_data</P>
+    <P Name="ZOrder">225</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">92#out:3</P>
+    <P Name="Dst">353#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">226</P>
+    <P Name="Src">353#out:1</P>
+    <P Name="Points">[125, 0]</P>
+    <P Name="Dst">98#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">227</P>
+    <P Name="Src">353#out:2</P>
+    <P Name="Points">[125, 0]</P>
+    <P Name="Dst">98#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">228</P>
+    <P Name="Src">353#out:3</P>
+    <P Name="Points">[125, 0]</P>
+    <P Name="Dst">98#in:3</P>
+  </Line>
+  <Annotation SID="336">
+    <P Name="Name">Q1.17</P>
+    <P Name="Position">[-313, 334, -284, 349]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
-    <P Name="ZOrder">-1</P>
+  </Annotation>
+  <Annotation SID="335">
+    <P Name="Name">Q1.15</P>
+    <P Name="Position">[-453, 334, -424, 349]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
   </Annotation>
   <Annotation SID="311">
     <P Name="Name">Roundoff noise for FFT is sqrt(Nstages)</P>
-    <P Name="Position">[50, 334, 226, 349]</P>
+    <P Name="Position">[17, 321, 193, 336]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="ZOrder">-2</P>
   </Annotation>
@@ -3478,7 +3415,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_2.xml
     <P Name="Name">This has a latency of 2K-1, 
 not including auto-pipeline
 registers</P>
-    <P Name="Position">[-151, 321, -29, 362]</P>
+    <P Name="Position">[-196, 321, -74, 362]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="HorizontalAlignment">center</P>
     <P Name="VerticalAlignment">middle</P>
@@ -3488,17 +3425,23 @@ registers</P>
     <P Name="Name">This has a latency of 2K-1, 
 not including auto-pipeline
 registers</P>
-    <P Name="Position">[359, 321, 481, 362]</P>
+    <P Name="Position">[269, 321, 391, 362]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="HorizontalAlignment">center</P>
     <P Name="VerticalAlignment">middle</P>
     <P Name="ZOrder">-2</P>
   </Annotation>
-  <Annotation SID="164">
-    <P Name="Name">discard imaginary part</P>
-    <P Name="Position">[567, 530, 667, 545]</P>
+  <Annotation SID="337">
+    <P Name="Name">Q1.17</P>
+    <P Name="Position">[697, 334, 726, 349]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
-    <P Name="ZOrder">-8</P>
+    <P Name="ZOrder">2</P>
+  </Annotation>
+  <Annotation SID="338">
+    <P Name="Name">Q1.15</P>
+    <P Name="Position">[835, 334, 864, 349]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">1</P>
   </Annotation>
 </System>
 
@@ -4392,6 +4335,589 @@ DSP Builder)</P>
     <P Name="Position">[330, 171, 447, 225]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="ZOrder">-4</P>
+  </Annotation>
+</System>
+
+__MWOPC_PART_BEGIN__ /simulink/systems/system_346.xml
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 2560, 1393]</P>
+  <Block BlockType="Inport" Name="v" SID="347">
+    <P Name="Position">[20, 43, 50, 57]</P>
+    <P Name="ZOrder">5255</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">fft_out_valid</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="c" SID="348">
+    <P Name="Position">[20, 88, 50, 102]</P>
+    <P Name="ZOrder">5256</P>
+    <P Name="Port">2</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">fft_out_channel</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="d0" SID="349">
+    <P Name="Position">[20, 133, 50, 147]</P>
+    <P Name="ZOrder">5257</P>
+    <P Name="Port">3</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">fft_out_data</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Reference" Name="ChannelIn" SID="342">
+    <PortCounts in="3" out="3"/>
+    <P Name="Position">[240, 26, 300, 164]</P>
+    <P Name="ZOrder">5253</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/ChannelIn</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">channelin</P>
+      <P Name="nInputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="nOutputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="omode">Inherit via internal rule</P>
+      <P Name="otype">sfix(16)</P>
+      <P Name="scale">2^-15</P>
+      <P Name="rndmethod">Unbiased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">1</P>
+      <P Name="inPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="outPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="dspbaimage">dspba_prim_channel_tall.svg</P>
+      <P Name="text">fprintf(&apos;In&apos;);</P>
+      <P Name="style">Optimised</P>
+      <P Name="dataSignals">1</P>
+      <P Name="foldingEnabled">off</P>
+      <P Name="channels">1</P>
+      <P Name="sampleRate">200</P>
+      <P Name="packetBeginPresent">off</P>
+      <P Name="packetBeginEnabled">off</P>
+      <P Name="visibilities">dspba_ChannelInVis(gcb)</P>
+      <P Name="scheduleOrigin">on</P>
+      <P Name="version">20211214</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="ChannelOut" SID="343">
+    <PortCounts in="3" out="3"/>
+    <P Name="Position">[755, 24, 815, 166]</P>
+    <P Name="ZOrder">5254</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/ChannelOut</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">channelout</P>
+      <P Name="nInputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="nOutputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="omode">Inherit via internal rule</P>
+      <P Name="otype">sfix(16)</P>
+      <P Name="scale">2^-15</P>
+      <P Name="rndmethod">Unbiased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">1</P>
+      <P Name="inPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="outPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="dspbaimage">dspba_prim_channel_tall.svg</P>
+      <P Name="text">fprintf(&apos;Out%s&apos;, AdvDSPBChannelOutDisplay(latency));</P>
+      <P Name="style">Optimised</P>
+      <P Name="dataSignals">1</P>
+      <P Name="foldingEnabled">off</P>
+      <P Name="channels">1</P>
+      <P Name="sampleRate">200</P>
+      <P Name="packetBeginPresent">off</P>
+      <P Name="packetBeginEnabled">off</P>
+      <P Name="visibilities">dspba_ChannelOutVis(gcb)</P>
+      <P Name="latency">1</P>
+      <P Name="version">20211214</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="Convert1" SID="316">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[575, 128, 650, 152]</P>
+    <P Name="ZOrder">5247</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/Convert</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">convert</P>
+      <P Name="nInputs">1</P>
+      <P Name="nOutputs">1</P>
+      <P Name="omode">Specify via dialog</P>
+      <P Name="otype">my_system.ifft_input_type</P>
+      <P Name="scale">2^-(17+my_system.ifft_bit_inc)</P>
+      <P Name="rndmethod">Biased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Asymmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">round([0:255]/17)</P>
+      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
+      <P Name="outPortNames">[&apos; &apos;; &apos;c&apos;]</P>
+      <P Name="dspbaimage">dspba_prim_wide.svg</P>
+      <P Name="text">fprintf(&apos;convert&apos;);</P>
+      <P Name="style">Optimised</P>
+      <P Name="visibilities">8+64+256+2^17</P>
+      <P Name="clipdetect">off</P>
+      <P Name="floatPrecision">float32_m23</P>
+      <P Name="advOptions">[]</P>
+      <P Name="version">20211007</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="ReinterpretCast" SID="317">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[430, 116, 505, 164]</P>
+    <P Name="ZOrder">5248</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/ReinterpretCast</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">reinterpret</P>
+      <P Name="nInputs">1</P>
+      <P Name="nOutputs">1</P>
+      <P Name="omode">Specify via dialog</P>
+      <P Name="otype">fixdt(1,18+my_system.Nfft_log2+1,17+my_system.Nfft_log2)</P>
+      <P Name="scale">2^-(17+my_system.Nfft_log2)</P>
+      <P Name="rndmethod">Unbiased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">0</P>
+      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
+      <P Name="outPortNames">[&apos; &apos;]</P>
+      <P Name="dspbaimage">dspba_prim.svg</P>
+      <P Name="text">fprintf(&apos;Reinterp\nCast&apos;, value);</P>
+      <P Name="style">Optimised</P>
+      <P Name="visibilities">8</P>
+      <P Name="floatPrecision">float32_m23</P>
+      <P Name="version">20211007</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="SynthesisInfo" SID="360">
+    <PortCounts/>
+    <P Name="Position">[455, -100, 565, -61]</P>
+    <P Name="ZOrder">5261</P>
+    <P Name="ShowName">off</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/SynthesisInfo</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">synthinfo</P>
+      <P Name="nInputs">0</P>
+      <P Name="nOutputs">0</P>
+      <P Name="omode">Inherit via internal rule</P>
+      <P Name="otype">sfix(16)</P>
+      <P Name="scale">2^-15</P>
+      <P Name="rndmethod">Truncate</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">99</P>
+      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
+      <P Name="outPortNames">[&apos; &apos;]</P>
+      <P Name="dspbaimage">dspba_prim_ctrl.jpg</P>
+      <P Name="text">fprintf(&apos;Style=%s&apos;, style);</P>
+      <P Name="style">Scheduled</P>
+      <P Name="visibilities">2^17+2^18+2^19+2^20</P>
+      <P Name="constraintPair">None</P>
+      <P Name="constraintRelation">&gt;</P>
+      <P Name="constraintLimit">2</P>
+      <P Name="modelRefSign">+</P>
+      <P Name="modelRef">&apos;&apos;</P>
+      <P Name="showSchedule">off</P>
+      <P Name="simulationMode">Use Global Value</P>
+      <P Name="resetMinimization">Conditional - On for ChannelIn/Out only</P>
+      <P Name="version">20220106</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Outport" Name="qv" SID="350">
+    <P Name="Position">[960, 43, 990, 57]</P>
+    <P Name="ZOrder">5258</P>
+  </Block>
+  <Block BlockType="Outport" Name="qc" SID="351">
+    <P Name="Position">[960, 88, 990, 102]</P>
+    <P Name="ZOrder">5259</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Outport" Name="q0" SID="352">
+    <P Name="Position">[960, 133, 990, 147]</P>
+    <P Name="ZOrder">5260</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">204</P>
+    <P Name="Src">342#out:1</P>
+    <P Name="Dst">343#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">207</P>
+    <P Name="Src">347#out:1</P>
+    <P Name="Dst">342#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">206</P>
+    <P Name="Src">342#out:3</P>
+    <P Name="Dst">317#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">200</P>
+    <P Name="Src">316#out:1</P>
+    <P Name="Dst">343#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">209</P>
+    <P Name="Src">349#out:1</P>
+    <P Name="Dst">342#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">205</P>
+    <P Name="Src">342#out:2</P>
+    <P Name="Dst">343#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">161</P>
+    <P Name="Src">317#out:1</P>
+    <P Name="Dst">316#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">212</P>
+    <P Name="Src">343#out:3</P>
+    <P Name="Dst">352#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">208</P>
+    <P Name="Src">348#out:1</P>
+    <P Name="Dst">342#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">211</P>
+    <P Name="Src">343#out:2</P>
+    <P Name="Dst">351#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">210</P>
+    <P Name="Src">343#out:1</P>
+    <P Name="Dst">350#in:1</P>
+  </Line>
+  <Annotation SID="318">
+    <P Name="Name">1/Nfft</P>
+    <P Name="Position">[455, 177, 480, 192]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+</System>
+
+__MWOPC_PART_BEGIN__ /simulink/systems/system_353.xml
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 2560, 1393]</P>
+  <Block BlockType="Inport" Name="v" SID="354">
+    <P Name="Position">[20, 43, 50, 57]</P>
+    <P Name="ZOrder">5257</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">ifft_out_valid</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="c" SID="355">
+    <P Name="Position">[20, 88, 50, 102]</P>
+    <P Name="ZOrder">5258</P>
+    <P Name="Port">2</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">ifft_out_channel</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="d0" SID="356">
+    <P Name="Position">[20, 133, 50, 147]</P>
+    <P Name="ZOrder">5259</P>
+    <P Name="Port">3</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">ifft_out_data</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Reference" Name="ChannelIn1" SID="344">
+    <PortCounts in="3" out="3"/>
+    <P Name="Position">[185, 26, 245, 164]</P>
+    <P Name="ZOrder">5255</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/ChannelIn</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">channelin</P>
+      <P Name="nInputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="nOutputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="omode">Inherit via internal rule</P>
+      <P Name="otype">sfix(16)</P>
+      <P Name="scale">2^-15</P>
+      <P Name="rndmethod">Unbiased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">1</P>
+      <P Name="inPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="outPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="dspbaimage">dspba_prim_channel_tall.svg</P>
+      <P Name="text">fprintf(&apos;In&apos;);</P>
+      <P Name="style">Optimised</P>
+      <P Name="dataSignals">1</P>
+      <P Name="foldingEnabled">off</P>
+      <P Name="channels">1</P>
+      <P Name="sampleRate">200</P>
+      <P Name="packetBeginPresent">off</P>
+      <P Name="packetBeginEnabled">off</P>
+      <P Name="visibilities">dspba_ChannelInVis(gcb)</P>
+      <P Name="scheduleOrigin">on</P>
+      <P Name="version">20211214</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="ChannelOut1" SID="345">
+    <PortCounts in="3" out="3"/>
+    <P Name="Position">[700, 24, 760, 166]</P>
+    <P Name="ZOrder">5256</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/ChannelOut</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">channelout</P>
+      <P Name="nInputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="nOutputs">dspba_internal_get_channel_ports(gcb)</P>
+      <P Name="omode">Inherit via internal rule</P>
+      <P Name="otype">sfix(16)</P>
+      <P Name="scale">2^-15</P>
+      <P Name="rndmethod">Unbiased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">1</P>
+      <P Name="inPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="outPortNames">[&apos;v&apos;; &apos;c&apos;; &apos;0&apos;; &apos;1&apos;; &apos;2&apos;; &apos;3&apos;; &apos;4&apos;; &apos;5&apos;; &apos;6&apos;; &apos;7&apos;; &apos;8&apos;; &apos;9&apos;; &apos;A&apos;; &apos;B&apos;; &apos;D&apos;; &apos;E&apos;; &apos;F&apos;; &apos;G&apos;; &apos;H&apos;; &apos;I&apos;; &apos;J&apos;; &apos;K&apos;; &apos;L&apos;; &apos;M&apos;; &apos;N&apos;; &apos;O&apos;; &apos;P&apos;; &apos;Q&apos;; &apos;R&apos;; &apos;S&apos;; &apos;T&apos;; &apos;U&apos;; &apos;W&apos;; &apos;X&apos;; &apos;Y&apos;; &apos;Z&apos;]</P>
+      <P Name="dspbaimage">dspba_prim_channel_tall.svg</P>
+      <P Name="text">fprintf(&apos;Out%s&apos;, AdvDSPBChannelOutDisplay(latency));</P>
+      <P Name="style">Optimised</P>
+      <P Name="dataSignals">1</P>
+      <P Name="foldingEnabled">off</P>
+      <P Name="channels">1</P>
+      <P Name="sampleRate">200</P>
+      <P Name="packetBeginPresent">off</P>
+      <P Name="packetBeginEnabled">off</P>
+      <P Name="visibilities">dspba_ChannelOutVis(gcb)</P>
+      <P Name="latency">1</P>
+      <P Name="version">20211214</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="Complex to Real-Imag" SID="161">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[335, 125, 430, 185]</P>
+    <P Name="ZOrder">5242</P>
+    <P Name="LibraryVersion">1.43</P>
+    <P Name="SourceBlock">DSPBAVectorUtil/Complex to Real-Imag</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset Complex to Real-Imag</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+    </InstanceData>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">data_ifft_real</P>
+        <P Name="DataLogging">on</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">data_ifft_imag</P>
+        <P Name="DataLogging">on</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Reference" Name="Convert" SID="307">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[540, 128, 615, 152]</P>
+    <P Name="ZOrder">5240</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/Convert</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">convert</P>
+      <P Name="nInputs">1</P>
+      <P Name="nOutputs">1</P>
+      <P Name="omode">Specify via dialog</P>
+      <P Name="otype">fixdt(1,18,17)</P>
+      <P Name="scale">2^-17</P>
+      <P Name="rndmethod">Biased</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Asymmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">round([0:255]/17)</P>
+      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
+      <P Name="outPortNames">[&apos; &apos;; &apos;c&apos;]</P>
+      <P Name="dspbaimage">dspba_prim_wide.svg</P>
+      <P Name="text">fprintf(&apos;convert&apos;);</P>
+      <P Name="style">Optimised</P>
+      <P Name="visibilities">8+64+256+2^17</P>
+      <P Name="clipdetect">off</P>
+      <P Name="floatPrecision">float32_m23</P>
+      <P Name="advOptions">[]</P>
+      <P Name="version">20211007</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Reference" Name="SynthesisInfo" SID="361">
+    <PortCounts/>
+    <P Name="Position">[390, -95, 500, -56]</P>
+    <P Name="ZOrder">5263</P>
+    <P Name="ShowName">off</P>
+    <P Name="LibraryVersion">1.492</P>
+    <P Name="SourceBlock">DSPBAPrim/SynthesisInfo</P>
+    <P Name="SourceType">DSP Builder Advanced Blockset primitive</P>
+    <InstanceData>
+      <P Name="MultithreadedSim">auto</P>
+      <P Name="primtype">synthinfo</P>
+      <P Name="nInputs">0</P>
+      <P Name="nOutputs">0</P>
+      <P Name="omode">Inherit via internal rule</P>
+      <P Name="otype">sfix(16)</P>
+      <P Name="scale">2^-15</P>
+      <P Name="rndmethod">Truncate</P>
+      <P Name="factor">1</P>
+      <P Name="satmethod">Symmetric</P>
+      <P Name="shift_vec">[0 1 2 -1]</P>
+      <P Name="value">99</P>
+      <P Name="inPortNames">[&apos; &apos;; &apos; &apos;;]</P>
+      <P Name="outPortNames">[&apos; &apos;]</P>
+      <P Name="dspbaimage">dspba_prim_ctrl.jpg</P>
+      <P Name="text">fprintf(&apos;Style=%s&apos;, style);</P>
+      <P Name="style">Scheduled</P>
+      <P Name="visibilities">2^17+2^18+2^19+2^20</P>
+      <P Name="constraintPair">None</P>
+      <P Name="constraintRelation">&gt;</P>
+      <P Name="constraintLimit">2</P>
+      <P Name="modelRefSign">+</P>
+      <P Name="modelRef">&apos;&apos;</P>
+      <P Name="showSchedule">off</P>
+      <P Name="simulationMode">Use Global Value</P>
+      <P Name="resetMinimization">Conditional - On for ChannelIn/Out only</P>
+      <P Name="version">20220106</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator" SID="162">
+    <P Name="Position">[490, 160, 510, 180]</P>
+    <P Name="ZOrder">5243</P>
+    <P Name="Commented">on</P>
+  </Block>
+  <Block BlockType="Outport" Name="qv" SID="357">
+    <P Name="Position">[880, 43, 910, 57]</P>
+    <P Name="ZOrder">5260</P>
+  </Block>
+  <Block BlockType="Outport" Name="qc" SID="358">
+    <P Name="Position">[880, 88, 910, 102]</P>
+    <P Name="ZOrder">5261</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Outport" Name="q0" SID="359">
+    <P Name="Position">[880, 133, 910, 147]</P>
+    <P Name="ZOrder">5262</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Line>
+    <P Name="Name">data_ifft_imag</P>
+    <P Name="FontName">Helvetica</P>
+    <P Name="FontSize">9</P>
+    <P Name="FontWeight">normal</P>
+    <P Name="FontAngle">normal</P>
+    <P Name="ZOrder">147</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">161#out:2</P>
+    <P Name="Dst">162#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">221</P>
+    <P Name="Src">345#out:2</P>
+    <P Name="Dst">358#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">data_ifft_real</P>
+    <P Name="FontName">Helvetica</P>
+    <P Name="FontSize">9</P>
+    <P Name="FontWeight">normal</P>
+    <P Name="FontAngle">normal</P>
+    <P Name="ZOrder">171</P>
+    <P Name="Labels">[0, 1]</P>
+    <P Name="Src">161#out:1</P>
+    <P Name="Points">[-5, 0]</P>
+    <P Name="Dst">307#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">210</P>
+    <P Name="Src">344#out:3</P>
+    <P Name="Points">[35, 0; 0, 15]</P>
+    <P Name="Dst">161#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">220</P>
+    <P Name="Src">345#out:1</P>
+    <P Name="Dst">357#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">214</P>
+    <P Name="Src">307#out:1</P>
+    <P Name="Dst">345#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">211</P>
+    <P Name="Src">344#out:2</P>
+    <P Name="Dst">345#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">212</P>
+    <P Name="Src">344#out:1</P>
+    <P Name="Dst">345#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">218</P>
+    <P Name="Src">355#out:1</P>
+    <P Name="Dst">344#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">222</P>
+    <P Name="Src">345#out:3</P>
+    <P Name="Dst">359#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">219</P>
+    <P Name="Src">356#out:1</P>
+    <P Name="Dst">344#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">217</P>
+    <P Name="Src">354#out:1</P>
+    <P Name="Dst">344#in:1</P>
+  </Line>
+  <Annotation SID="164">
+    <P Name="Name">discard imaginary part</P>
+    <P Name="Position">[332, 135, 432, 150]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-8</P>
+    <P Name="FontName">Helvetica</P>
+    <P Name="FontSize">10</P>
+    <P Name="FontWeight">normal</P>
+    <P Name="FontAngle">normal</P>
   </Annotation>
 </System>
 
@@ -5313,21 +5839,11 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_98.xml
   <Block BlockType="Inport" Name="v" SID="99">
     <P Name="Position">[-715, 93, -685, 107]</P>
     <P Name="ZOrder">-1</P>
-    <PortProperties>
-      <Port Type="out" Index="1">
-        <P Name="PropagatedSignals">ifft_out_valid</P>
-      </Port>
-    </PortProperties>
   </Block>
   <Block BlockType="Inport" Name="c" SID="101">
     <P Name="Position">[-715, 173, -685, 187]</P>
     <P Name="ZOrder">1</P>
     <P Name="Port">2</P>
-    <PortProperties>
-      <Port Type="out" Index="1">
-        <P Name="PropagatedSignals">ifft_out_channel</P>
-      </Port>
-    </PortProperties>
   </Block>
   <Block BlockType="Inport" Name="d0" SID="105">
     <P Name="Position">[-715, 253, -685, 267]</P>
@@ -6643,10 +7159,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
   <P Name="Location">[-1, -7, 2560, 1393]</P>
-  <P Name="Open">on</P>
   <P Name="ZoomFactor">150</P>
   <P Name="ReportName">simulink-default.rpt</P>
-  <P Name="SIDHighWatermark">331</P>
+  <P Name="SIDHighWatermark">361</P>
   <Block BlockType="Bias" Name="Bias" SID="331">
     <P Name="Position">[-75, 440, -35, 470]</P>
     <P Name="ZOrder">36</P>
@@ -6979,26 +7494,26 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
       <Object PropName="ExplorerBarInfo" ObjectID="4" ClassName="Simulink.ExplorerBarInfo">
         <P Name="Visible" Class="logical">1</P>
       </Object>
-      <Array PropName="EditorsInfo" Type="Simulink.EditorInfo" Dimension="1*25">
+      <Array PropName="EditorsInfo" Type="Simulink.EditorInfo" Dimension="1*27">
         <Object ObjectID="5">
           <P Name="IsActive" Class="logical">1</P>
           <P Name="IsTabbed" Class="logical">1</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">2</P>
+          <P Name="Extents" Class="double">[3242.0, 1305.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-777.478640327786, -9.9658762534274921]</P>
+          <P Name="SceneRectInView" Class="double">[-777.478640327786, -9.9658762534274921, 2161.3333333333335, 870.0]</P>
+        </Object>
+        <Object ObjectID="6">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkTopLevel</P>
           <P Name="LoadSaveID" Class="char">0</P>
           <P Name="Extents" Class="double">[3242.0, 1731.0]</P>
           <P Name="ZoomFactor" Class="double">1.5</P>
           <P Name="Offset" Class="double">[-282.51335227597127, -10.667003084854779]</P>
           <P Name="SceneRectInView" Class="double">[-282.51335227597127, -10.667003084854779, 1440.8888888888889, 769.33333333333337]</P>
-        </Object>
-        <Object ObjectID="6">
-          <P Name="IsActive" Class="logical">0</P>
-          <P Name="IsTabbed" Class="logical">0</P>
-          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
-          <P Name="LoadSaveID" Class="char">2</P>
-          <P Name="Extents" Class="double">[3242.0, 1731.0]</P>
-          <P Name="ZoomFactor" Class="double">1.25</P>
-          <P Name="Offset" Class="double">[-628.04952260093194, -31.655736653786903]</P>
-          <P Name="SceneRectInView" Class="double">[-628.04952260093194, -31.655736653786903, 1729.0666666666666, 923.2]</P>
         </Object>
         <Object ObjectID="7">
           <P Name="IsActive" Class="logical">0</P>
@@ -7024,13 +7539,33 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">353</P>
+          <P Name="Extents" Class="double">[3242.0, 1305.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-626.22526041666674, -330.16666666666663]</P>
+          <P Name="SceneRectInView" Class="double">[-626.22526041666674, -330.16666666666663, 2161.3333333333335, 870.0]</P>
+        </Object>
+        <Object ObjectID="10">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">0</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">346</P>
+          <P Name="Extents" Class="double">[3242.0, 1305.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-585.67057291666674, -326.66666666666663]</P>
+          <P Name="SceneRectInView" Class="double">[-585.67057291666674, -326.66666666666663, 2161.3333333333335, 870.0]</P>
+        </Object>
+        <Object ObjectID="11">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">0</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
           <P Name="LoadSaveID" Class="char">322</P>
           <P Name="Extents" Class="double">[3242.0, 1731.0]</P>
           <P Name="ZoomFactor" Class="double">2.0</P>
           <P Name="Offset" Class="double">[-392.38888888888891, -194.16666666666686]</P>
           <P Name="SceneRectInView" Class="double">[-392.38888888888891, -194.16666666666686, 1080.6666666666667, 577.0]</P>
         </Object>
-        <Object ObjectID="10">
+        <Object ObjectID="12">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7040,7 +7575,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-294.485962105868, 230.589299224806]</P>
           <P Name="SceneRectInView" Class="double">[-294.485962105868, 230.589299224806, 1164.1904761904761, 497.14285714285717]</P>
         </Object>
-        <Object ObjectID="11">
+        <Object ObjectID="13">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7050,7 +7585,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-461.53502651360549, -62.534873073944155]</P>
           <P Name="SceneRectInView" Class="double">[-461.53502651360549, -62.534873073944155, 1629.8666666666666, 696.0]</P>
         </Object>
-        <Object ObjectID="12">
+        <Object ObjectID="14">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7060,7 +7595,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-1679.166666666667, 216.63590750435935]</P>
           <P Name="SceneRectInView" Class="double">[-1679.166666666667, 216.63590750435935, 3602.2222222222231, 2040.3948516579412]</P>
         </Object>
-        <Object ObjectID="13">
+        <Object ObjectID="15">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7070,7 +7605,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-1085.3333333333333, -480.66666666666674]</P>
           <P Name="SceneRectInView" Class="double">[-1085.3333333333333, -480.66666666666674, 2470.6666666666665, 1154.0]</P>
         </Object>
-        <Object ObjectID="14">
+        <Object ObjectID="16">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7080,7 +7615,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[10.609999232238359, -241.40046875326195]</P>
           <P Name="SceneRectInView" Class="double">[10.609999232238359, -241.40046875326195, 1358.2222222222222, 580.0]</P>
         </Object>
-        <Object ObjectID="15">
+        <Object ObjectID="17">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7090,7 +7625,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-115.788888888889, -188.70557501051167]</P>
           <P Name="SceneRectInView" Class="double">[-115.788888888889, -188.70557501051167, 1647.1111111111111, 769.33333333333337]</P>
         </Object>
-        <Object ObjectID="16">
+        <Object ObjectID="18">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7100,7 +7635,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-217.50000000000011, -180.33333333333348]</P>
           <P Name="SceneRectInView" Class="double">[-217.50000000000011, -180.33333333333348, 1358.2222222222222, 580.0]</P>
         </Object>
-        <Object ObjectID="17">
+        <Object ObjectID="19">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7110,7 +7645,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-289.0476190476187, -127.16666666666697]</P>
           <P Name="SceneRectInView" Class="double">[-289.0476190476187, -127.16666666666697, 1411.8095238095243, 659.42857142857167]</P>
         </Object>
-        <Object ObjectID="18">
+        <Object ObjectID="20">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7120,7 +7655,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-322.36360753899896, -324.50508729030327]</P>
           <P Name="SceneRectInView" Class="double">[-322.36360753899896, -324.50508729030327, 1425.8034898363017, 608.85914732865626]</P>
         </Object>
-        <Object ObjectID="19">
+        <Object ObjectID="21">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7130,7 +7665,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-313.88888888888869, -276.12859998696331]</P>
           <P Name="SceneRectInView" Class="double">[-313.88888888888869, -276.12859998696331, 1358.2222222222222, 580.0]</P>
         </Object>
-        <Object ObjectID="20">
+        <Object ObjectID="22">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7140,7 +7675,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-522.83333333333326, -309.66666666666674]</P>
           <P Name="SceneRectInView" Class="double">[-522.83333333333326, -309.66666666666674, 2470.6666666666665, 1154.0]</P>
         </Object>
-        <Object ObjectID="21">
+        <Object ObjectID="23">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7150,7 +7685,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-668.66666666666663, -338.66666666666663]</P>
           <P Name="SceneRectInView" Class="double">[-668.66666666666663, -338.66666666666663, 2037.3333333333333, 870.0]</P>
         </Object>
-        <Object ObjectID="22">
+        <Object ObjectID="24">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7160,7 +7695,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-180.50954861111109, -204.44444444444457]</P>
           <P Name="SceneRectInView" Class="double">[-180.50954861111109, -204.44444444444457, 1400.4444444444443, 769.33333333333337]</P>
         </Object>
-        <Object ObjectID="23">
+        <Object ObjectID="25">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7170,7 +7705,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-777.16666666666674, -306.33333333333331]</P>
           <P Name="SceneRectInView" Class="double">[-777.16666666666674, -306.33333333333331, 2069.3333333333335, 798.66666666666663]</P>
         </Object>
-        <Object ObjectID="24">
+        <Object ObjectID="26">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7180,7 +7715,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-742.83333333333326, -196.33333333333331]</P>
           <P Name="SceneRectInView" Class="double">[-742.83333333333326, -196.33333333333331, 2161.3333333333335, 798.66666666666663]</P>
         </Object>
-        <Object ObjectID="25">
+        <Object ObjectID="27">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7190,7 +7725,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-1039.6692708333333, -301.83333333333331]</P>
           <P Name="SceneRectInView" Class="double">[-1039.6692708333333, -301.83333333333331, 2161.3333333333335, 798.66666666666663]</P>
         </Object>
-        <Object ObjectID="26">
+        <Object ObjectID="28">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7200,7 +7735,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-209.19047619047637, -49.047619047619094]</P>
           <P Name="SceneRectInView" Class="double">[-209.19047619047637, -49.047619047619094, 1235.0476190476195, 456.38095238095252]</P>
         </Object>
-        <Object ObjectID="27">
+        <Object ObjectID="29">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7210,7 +7745,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-577.83333333333326, -158.33333333333331]</P>
           <P Name="SceneRectInView" Class="double">[-577.83333333333326, -158.33333333333331, 2161.3333333333335, 798.66666666666663]</P>
         </Object>
-        <Object ObjectID="28">
+        <Object ObjectID="30">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7220,7 +7755,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Offset" Class="double">[-640.66666666666674, -208.33333333333331]</P>
           <P Name="SceneRectInView" Class="double">[-640.66666666666674, -208.33333333333331, 2062.0, 798.66666666666663]</P>
         </Object>
-        <Object ObjectID="29">
+        <Object ObjectID="31">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -7232,7 +7767,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
         </Object>
       </Array>
       <Array PropName="DockComponentsInfo" Type="Simulink.DockComponentInfo" Dimension="1*3">
-        <Object ObjectID="30">
+        <Object ObjectID="32">
           <P Name="Type" Class="char">Simulink:Editor:ReferencedFiles</P>
           <P Name="ID" Class="char">Referenced Files</P>
           <P Name="Visible" Class="logical">0</P>
@@ -7245,7 +7780,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Height" Class="int32">320</P>
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
-        <Object ObjectID="31">
+        <Object ObjectID="33">
           <P Name="Type" Class="char">GLUE2:PropertyInspector</P>
           <P Name="ID" Class="char">Property Inspector</P>
           <P Name="Visible" Class="logical">1</P>
@@ -7257,7 +7792,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Height" Class="int32">320</P>
           <P Name="Minimized" Class="char">On</P>
         </Object>
-        <Object ObjectID="32">
+        <Object ObjectID="34">
           <P Name="Type" Class="char">LibraryBrowser2 LibraryBrowserStudioComponent</P>
           <P Name="ID" Class="char">stft_v1</P>
           <P Name="Visible" Class="logical">1</P>
@@ -7270,7 +7805,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
       </Array>
-      <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAwAAAAAAAAHKAAAHEfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD8AAAA1AAABxEAAAD2AP////oAAAADAgAAAAT7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACTAAf///sAAABsAEwAaQBiAHIAYQByAHkAQgByAG8AdwBzAGUAcgAyACAATABpAGIAcgBhAHIAeQBCAHIAbwB3AHMAZQByAFMAdAB1AGQAaQBvAEMAbwBtAHAAbwBuAGUAbgB0AC8AdQBuAHQAaQB0AGwAZQBkAQAAAAD/////AAAAAAAAAAD7AAAAcgBMAGkAYgByAGEAcgB5AEIAcgBvAHcAcwBlAHIAMgAgAEwAaQBiAHIAYQByAHkAQgByAG8AdwBzAGUAcgBTAHQAdQBkAGkAbwBDAG8AbQBwAG8AbgBlAG4AdAAvAGgAZQBsAGwAbwBfAHcAbwByAGwAZAEAAAAA/////wAAAAAAAAAA+wAAAGoATABpAGIAcgBhAHIAeQBCAHIAbwB3AHMAZQByADIAIABMAGkAYgByAGEAcgB5AEIAcgBvAHcAcwBlAHIAUwB0AHUAZABpAG8AQwBvAG0AcABvAG4AZQBuAHQALwBzAHQAZgB0AF8AdgAxAQAAAAD/////AAAA9gD////7AAAAYABTAGkAbQB1AGwAaQBuAGsAOgBFAGQAaQB0AG8AcgA6AFIAZQBmAGUAcgBlAG4AYwBlAGQARgBpAGwAZQBzAC8AUgBlAGYAZQByAGUAbgBjAGUAZAAgAEYAaQBsAGUAcwAAAADUAAAHEQAAAMcA////AAAAAQAAAX8AAAcR/AIAAAAB+wAAAFQARwBMAFUARQAyADoAUAByAG8AcABlAHIAdAB5AEkAbgBzAHAAZQBjAHQAbwByAC8AUAByAG8AcABlAHIAdAB5ACAASQBuAHMAcABlAGMAdABvAHIAAAAAAP////8AAAKAAP///wAAAAMAAAwoAAABpPwBAAAAAfv/////AAAAAAD/////AAACAwD///8AAAziAAAHEQAAAAEAAAACAAAAAQAAAAL8AAAABAAAAAAAAAABAAAANgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIATABlAGYAdAMAAAAA/////wAAAAAAAAAAAAAAAQAAAAEAAAA4AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBSAGkAZwBoAHQDAAAAAP////8AAAAAAAAAAAAAAAIAAAAB/////wEAAAAA/////wAAAAAAAAAAAAAAAwAAAAEAAAA6AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBCAG8AdAB0AG8AbQAAAAAA/////wAAAAAAAAAA</P>
+      <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAwAAAAAAAAHKAAAHEfwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD8AAAA1AAABxEAAAD2AP////oAAAADAgAAAAT7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACTAAf///sAAABsAEwAaQBiAHIAYQByAHkAQgByAG8AdwBzAGUAcgAyACAATABpAGIAcgBhAHIAeQBCAHIAbwB3AHMAZQByAFMAdAB1AGQAaQBvAEMAbwBtAHAAbwBuAGUAbgB0AC8AdQBuAHQAaQB0AGwAZQBkAQAAAAD/////AAAAAAAAAAD7AAAAcgBMAGkAYgByAGEAcgB5AEIAcgBvAHcAcwBlAHIAMgAgAEwAaQBiAHIAYQByAHkAQgByAG8AdwBzAGUAcgBTAHQAdQBkAGkAbwBDAG8AbQBwAG8AbgBlAG4AdAAvAGgAZQBsAGwAbwBfAHcAbwByAGwAZAEAAAAA/////wAAAAAAAAAA+wAAAGoATABpAGIAcgBhAHIAeQBCAHIAbwB3AHMAZQByADIAIABMAGkAYgByAGEAcgB5AEIAcgBvAHcAcwBlAHIAUwB0AHUAZABpAG8AQwBvAG0AcABvAG4AZQBuAHQALwBzAHQAZgB0AF8AdgAxAQAAAAD/////AAAA9gD////7AAAAYABTAGkAbQB1AGwAaQBuAGsAOgBFAGQAaQB0AG8AcgA6AFIAZQBmAGUAcgBlAG4AYwBlAGQARgBpAGwAZQBzAC8AUgBlAGYAZQByAGUAbgBjAGUAZAAgAEYAaQBsAGUAcwAAAADUAAAHEQAAAMcA////AAAAAQAAAX8AAAcR/AIAAAAB+wAAAFQARwBMAFUARQAyADoAUAByAG8AcABlAHIAdAB5AEkAbgBzAHAAZQBjAHQAbwByAC8AUAByAG8AcABlAHIAdAB5ACAASQBuAHMAcABlAGMAdABvAHIAAAAAAP////8AAAKAAP///wAAAAMAAAziAAABpPwBAAAAAfv/////AQAAAfYAAAziAAACAwD///8AAAziAAAFZwAAAAEAAAACAAAAAQAAAAL8AAAABAAAAAAAAAABAAAANgBjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIATABlAGYAdAMAAAAA/////wAAAAAAAAAAAAAAAQAAAAEAAAA4AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBSAGkAZwBoAHQDAAAAAP////8AAAAAAAAAAAAAAAIAAAAB/////wEAAAAA/////wAAAAAAAAAAAAAAAwAAAAEAAAA6AGMAbwBsAGwAYQBwAHMAaQBiAGwAZQBQAGEAbgBlAGwAVABvAG8AbABCAGEAcgBCAG8AdAB0AG8AbQAAAAAA/////wAAAAAAAAAA</P>
       <Array PropName="PersistedApps" Type="Cell" Dimension="0*1"/>
       <P Name="WindowUuid" Class="char">43a7fe24-6618-44b7-a6c4-7acfaa3515db</P>
     </Object>
