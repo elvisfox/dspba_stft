@@ -12,7 +12,7 @@ err_vect = out_data - in_data;
 err_lsb = err_vect * 2^15;
 
 max_err_lsb = max(abs([err_lsb.real ; err_lsb.imag]));
-rms_err_lsb = sqrt(sum((abs(err_lsb) .^ 2) ./ length(err_lsb_real)));
+rms_err_lsb = sqrt(sum((abs(err_lsb) .^ 2) ./ length(err_lsb.real)));
 err_text = sprintf("Max error: %.1f [LSB_{15}]\nRMS error: %.3f [LSB_{15}]", max_err_lsb, rms_err_lsb);
 fprintf("%s\n", err_text);
 
